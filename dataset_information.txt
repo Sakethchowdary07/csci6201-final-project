@@ -1,0 +1,21 @@
+Dataset Name: California Housing Dataset
+
+Source / Organization:
+Scikit-learn, which distributes this dataset through its datasets API. The underlying data is derived from the 1990 California census.
+
+Documentation URL:
+https://scikit-learn.org/stable/datasets/real_world.html#california-housing-dataset
+
+Short Description:
+The California Housing dataset contains 20,640 observations of California districts and 8 input features, including median income, median house age, average rooms, average bedrooms, population, average occupancy, latitude, and longitude. The target is median house value, represented in units of $100,000. The dataset is intended for regression and educational machine-learning analysis. It reflects historical data derived from the 1990 census and should not be interpreted as current housing prices.
+
+Original or Modified Version:
+We use the dataset as provided by scikit-learn through fetch_california_housing(as_frame=True). We do not manually alter the original feature values. The script creates derived plots and model outputs for analysis.
+
+How It Is Loaded in Python:
+from sklearn.datasets import fetch_california_housing
+housing = fetch_california_housing(as_frame=True)
+X = housing.data
+y = housing.target
+
+The dataset is downloaded by scikit-learn when required. The dataset itself is not included in the Blackboard submission.
