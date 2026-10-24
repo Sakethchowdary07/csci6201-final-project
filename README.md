@@ -5,9 +5,7 @@
 **Dataset:** California Housing dataset provided by scikit-learn
 
 ## Team Members
-- [Team member 1 — full name]
-- [Team member 2 — full name, if applicable]
-- [Team member 3 — full name, if applicable]
+- Venkat Saketh Chowdary Maddineni
 
 ## Project Overview
 This project investigates how housing characteristics, median income, and geographic information relate to median house values across California districts. We will first explore the data and train a baseline regression model, then improve the analysis for the Final Project.
