@@ -1,11 +1,8 @@
 """
 CSCI 6201 Lab 2 — California Housing Dataset
 Run: python analysis.py
-
-The first run downloads the California Housing dataset through scikit-learn.
 Generated charts and metrics are saved in the outputs/ folder.
 """
-
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -18,7 +15,6 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 OUTPUT_DIR = Path("outputs")
 OUTPUT_DIR.mkdir(exist_ok=True)
-
 
 def main():
     # 1. Load the dataset
@@ -142,7 +138,6 @@ def main():
         "\nReminder: the target is measured in units of $100,000 and the data "
         "comes from the 1990 census. Do not interpret it as current market prices."
     )
-
 
 if __name__ == "__main__":
     main()
