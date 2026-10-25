@@ -33,9 +33,10 @@ Dataset documentation: https://scikit-learn.org/stable/datasets/real_world.html#
 The dataset is loaded using `fetch_california_housing(as_frame=True)` from `sklearn.datasets`; the dataset is downloaded by scikit-learn when needed and is not manually uploaded to Blackboard.
 
 ## Research Questions
-1. How strongly is median income associated with median house value?
-2. How accurately can a Linear Regression model predict median house values using the available features?
-3. Does a Decision Tree Regressor improve prediction performance compared with Linear Regression?
+1. Relationship Analysis: How strongly is median income associated with median house value in California, and what patterns can be observed through exploratory data analysis and data visualization?
+2. Linear Regression Performance: How accurately can a Linear Regression model predict median house values using the available dataset features, and which features contribute most to the predictions?
+3. Model Comparison: Does a Decision Tree Regressor improve prediction performance compared with Linear Regression when evaluated using the same training and testing datasets?
+4. Prediction Error Analysis: What types of prediction errors do the models make, and are there patterns in their errors across different house-value ranges?
 
 ## Current Lab 2 Work
 The `analysis.py` script:
