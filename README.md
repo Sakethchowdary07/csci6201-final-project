@@ -1,5 +1,5 @@
 # California Housing Value Prediction
-## CSCI 6201 Lab 2 — Final Project Checkpoint
+## CSCI 6201 Lab 2
 
 **Project type:** Regression / supervised machine learning  
 **Dataset:** California Housing dataset provided by scikit-learn
@@ -54,8 +54,6 @@ After running the script, review both charts and replace the notes below with ob
 - **Income vs. house value:** Check whether higher median income tends to correspond to higher median house value. Describe any non-linear pattern, spread, or ceiling effect you observe.
 - **House-value distribution:** Describe the shape of the distribution and whether many observations appear near the maximum recorded value.
 
-Do not claim a specific trend or model score without checking the generated output.
-
 ## Preliminary Model Evaluation
 The script reports:
 - **MAE:** average absolute prediction error in target units.
@@ -96,6 +94,4 @@ The first run needs an internet connection so scikit-learn can download the data
 ## Team Contributions
 Record each member's actual work here. Every team member should make a meaningful contribution to the repository and understand the code they submit.
 
-- [Member 1]: [actual contribution]
-- [Member 2]: [actual contribution]
-- [Member 3]: [actual contribution]
+- Venkat Saketh Chowdary Maddineni
