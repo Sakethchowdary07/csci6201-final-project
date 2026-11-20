@@ -1,8 +1,11 @@
 """
 CSCI 6201 Lab 2 — California Housing Dataset
 Run: python analysis.py
+
+The first run downloads the California Housing dataset through scikit-learn.
 Generated charts and metrics are saved in the outputs/ folder.
 """
+
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -15,6 +18,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 OUTPUT_DIR = Path("outputs")
 OUTPUT_DIR.mkdir(exist_ok=True)
+
 
 def main():
     # 1. Load the dataset
@@ -82,6 +86,28 @@ def main():
     plt.savefig(OUTPUT_DIR / "house_value_distribution.png", dpi=200)
     plt.close()
 
+    # 5. Visualization 3: geographic distribution of house values
+    plt.figure(figsize=(10, 7))
+
+    scatter = plt.scatter(
+        df["Longitude"],
+        df["Latitude"],
+        c=df["MedHouseVal"],
+        cmap="viridis",
+        alpha=0.6,
+        s=10,
+    )
+
+    plt.colorbar(scatter, label="Median house value ($100,000 units)")
+    plt.title("Geographic Distribution of California House Values")
+    plt.xlabel("Longitude")
+    plt.ylabel("Latitude")
+    plt.grid(alpha=0.15)
+    plt.tight_layout()
+
+    plt.savefig(OUTPUT_DIR / "geographic_house_values.png", dpi=300)
+    plt.close()
+
     print("\n=== VISUALIZATION NOTES ===")
     print(
         "1. Income vs. value: inspect whether higher median income generally "
@@ -91,6 +117,11 @@ def main():
     print(
         "2. Target histogram: inspect the spread and skew of median house values. "
         "Look for a concentration of observations near the upper end."
+    )
+    print(
+        "3. Geographic distribution: inspect how house values vary across "
+        "California using latitude and longitude. Higher-value areas appear "
+        "in brighter colors."
     )
 
     # 5. Train/test split and baseline models
@@ -138,6 +169,7 @@ def main():
         "\nReminder: the target is measured in units of $100,000 and the data "
         "comes from the 1990 census. Do not interpret it as current market prices."
     )
+
 
 if __name__ == "__main__":
     main()
