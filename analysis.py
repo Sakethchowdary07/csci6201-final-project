@@ -108,6 +108,76 @@ def main():
     plt.savefig(OUTPUT_DIR / "geographic_house_values.png", dpi=300)
     plt.close()
 
+        # 6. Regional income and housing affordability analysis
+    df["Region"] = pd.cut(
+        df["Latitude"],
+        bins=[-float("inf"), 35, 37.5, float("inf")],
+        labels=["Southern California", "Central California", "Northern California"],
+    )
+
+    regional_stats = (
+        df.groupby("Region", observed=True)
+        .agg(
+            Districts=("MedHouseVal", "count"),
+            MedianIncome=("MedInc", "median"),
+            MedianHouseValue=("MedHouseVal", "median"),
+        )
+        .reset_index()
+    )
+
+    # Convert dataset units into approximate dollar values.
+    regional_stats["MedianIncome_USD"] = (
+        regional_stats["MedianIncome"] * 10000
+    )
+    regional_stats["MedianHouseValue_USD"] = (
+        regional_stats["MedianHouseValue"] * 100000
+    )
+
+    # House value-to-income ratio.
+    regional_stats["PriceToIncomeRatio"] = (
+        regional_stats["MedianHouseValue"] * 10
+        / regional_stats["MedianIncome"]
+    )
+
+    # Save regional analysis.
+    regional_stats.to_csv(
+        OUTPUT_DIR / "regional_affordability.csv",
+        index=False,
+    )
+
+    print("\n=== REGIONAL AFFORDABILITY ANALYSIS ===")
+    print(
+        regional_stats[
+            [
+                "Region",
+                "Districts",
+                "MedianIncome_USD",
+                "MedianHouseValue_USD",
+                "PriceToIncomeRatio",
+            ]
+        ].round(2).to_string(index=False)
+    )
+
+    # Plot regional house value-to-income ratios.
+    plt.figure(figsize=(9, 6))
+
+    plt.bar(
+        regional_stats["Region"].astype(str),
+        regional_stats["PriceToIncomeRatio"],
+    )
+
+    plt.title("Housing Value-to-Income Ratio by California Region")
+    plt.xlabel("Region")
+    plt.ylabel("Median House Value / Median Household Income")
+    plt.xticks(rotation=15)
+    plt.tight_layout()
+
+    plt.savefig(
+        OUTPUT_DIR / "regional_affordability.png",
+        dpi=300,
+    )
+    plt.close()
+
     print("\n=== VISUALIZATION NOTES ===")
     print(
         "1. Income vs. value: inspect whether higher median income generally "

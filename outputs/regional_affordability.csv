@@ -1,0 +1,4 @@
+Region,Districts,MedianIncome,MedianHouseValue,MedianIncome_USD,MedianHouseValue_USD,PriceToIncomeRatio
+Southern California,11294,3.64555,1.907,36455.5,190700.0,5.231035097584726
+Central California,3211,3.4198,1.619,34198.0,161900.0,4.7341949821627
+Northern California,6135,3.3661,1.569,33661.0,156900.0,4.6611805947535725
