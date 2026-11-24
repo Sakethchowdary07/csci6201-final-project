@@ -14,7 +14,7 @@ from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 OUTPUT_DIR = Path("outputs")
@@ -208,6 +208,12 @@ def main():
             max_depth=15,
             random_state=42,
             n_jobs=-1,
+        ),
+        "Gradient Boosting": GradientBoostingRegressor(
+            n_estimators=100,
+            learning_rate=0.1,
+            max_depth=3,
+            random_state=42,
         ),
     }
 
