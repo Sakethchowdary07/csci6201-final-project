@@ -14,6 +14,7 @@ from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 OUTPUT_DIR = Path("outputs")
@@ -201,8 +202,12 @@ def main():
 
     models = {
         "Linear Regression": LinearRegression(),
-        "Decision Tree Regressor": DecisionTreeRegressor(
-            max_depth=8, random_state=42
+        "Decision Tree": DecisionTreeRegressor(max_depth=8, random_state=42),
+        "Random Forest": RandomForestRegressor(
+            n_estimators=100,
+            max_depth=15,
+            random_state=42,
+            n_jobs=-1,
         ),
     }
 
